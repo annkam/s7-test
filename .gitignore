@@ -7,6 +7,5 @@ playbook.retry
 .terraform/
 
 # Sensitive Files
-/variables.tf
 credentials.json
 id_rsa
