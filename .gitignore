@@ -1,0 +1,12 @@
+# Compiled files
+*.tfstate
+*.tfstate.backup
+playbook.retry
+
+# Module directory
+.terraform/
+
+# Sensitive Files
+/variables.tf
+credentials.json
+id_rsa

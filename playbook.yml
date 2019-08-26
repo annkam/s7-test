@@ -1,0 +1,22 @@
+---
+- hosts: all
+  tasks:
+    - name: install nginx
+      apt: name=nginx state=latest
+    - name: copy the nginx config file
+      copy:
+        src: ./nginx/helloworld.cfg
+        dest: /etc/nginx/sites-available/helloworld.cfg
+    - name: create symlink
+      file:
+        src: /etc/nginx/sites-available/helloworld.cfg
+        dest: /etc/nginx/sites-enabled/default
+        state: link
+    - name: copy the html page
+      copy:
+        src: ./nginx/helloworld.html
+        dest: /var/www/html/index.html
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
